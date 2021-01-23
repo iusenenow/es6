@@ -9,6 +9,13 @@
 
 <body>
 
+  <div class="container">
+
+    <h2 class="page-header">点击切换颜色</h2>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
 
 
   <script>
@@ -17,7 +24,32 @@
     let b, c, d;
     let e = 100;
     let f = 521, g = 'iloveyou', h = []
+
+    //1.变量不能重复声明
+    let star = '罗志祥'
+    // let star = '小猪'
+
+    //2.块儿级作用域: if-else, while, for。ES5有全局，函数，eval作用域
+    // {let girl = "周扬青"}
+    // console.log(girl); //girl is not defined
+    // { var girl = "周扬青" }
+    // console.log(girl); // 周扬青
+
+    //3.不存在变量提升
+    // console.log(song); // Undefined
+    var song = '恋爱达人'
+    //let song = '恋爱达人' // Uncaught ReferenceError: Cannot access 'song' before initialization
+
+    //4.不存在作用域链
+    // {
+    //   let school = '尚硅谷'
+    //   function fn() {
+    //     console.log(school);
+    //   }
+    //   fn()
+    // }
   </script>
+  <script src="/index.js"></script>
 </body>
 
 </html>
