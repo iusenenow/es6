@@ -38,3 +38,38 @@
 
 // 9.箭头函数
 // 1)this是静态的，this始终指向函数声明时所在作用域下的this的值
+function getName() {
+  console.log(this.name);
+}
+
+let getName2 = () => console.log(this.name)
+
+window.name = 'Teresa'
+const school = { name: 'ODPS' }
+//直接调用
+//getName() // Teresa
+//getName2() // Teresa
+//call方法调用
+//getName.call(school) //ODPS
+//getName2.call(school) //Teresa
+
+// 2)不能作为构造函数构造实例化对象
+let Person = (name, age) => {
+  this.name = name
+  this.age = age
+}
+
+// let me = new Person('Wei', 37) //Uncaught TypeError: Person is not a constructor
+
+// 3)不能使用arguments变量
+let fn = () => console.log(arguments);
+//fn(1,2,3) //Uncaught ReferenceError: arguments is not defined
+
+let ad = document.getElementById('ad')
+
+ad.addEventListener('click', function () {
+  setTimeout(function () {
+    console.log(this);
+    this.style.background = 'lightblue'
+  }, 2000)
+})
