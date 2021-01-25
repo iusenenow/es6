@@ -65,11 +65,39 @@ let Person = (name, age) => {
 let fn = () => console.log(arguments);
 //fn(1,2,3) //Uncaught ReferenceError: arguments is not defined
 
+// 4)arrow function的实践与应用场景
 let ad = document.getElementById('ad')
 
-ad.addEventListener('click', function () {
-  setTimeout(function () {
-    console.log(this);
-    this.style.background = 'lightblue'
-  }, 2000)
-})
+// ad.addEventListener('click', function () {
+//   //保存this的值
+//   console.log(this)// <div id="ad"></div>
+//   let _this = this
+//   setTimeout(function () {
+//     console.log(this) // window
+//     _this.style.background = 'lightblue'
+//   }, 2000)
+// })
+
+// ad.addEventListener('click', function () {
+//   setTimeout(() => {
+//     console.log(this)
+//     this.style.background = 'lightblue'
+//   }, 2000)
+// })
+
+//箭头函数适合与this无关的回调，定时器，数组方法的回调
+//箭头函数不适合与this有关的回调，事件回调，对象的方法
+
+//10.rest参数
+//ES5获取实参的方式
+// function date() {
+//   console.log(arguments)
+// }
+// date("Teresa", "Isabel", "Cynthia") //arguments是一个对象
+
+//...args是一个形参
+// function date(...args) {
+//   console.log(args);
+// }
+//date("Teresa", "Isabel", "Cynthia") //...args是一个数组
+
