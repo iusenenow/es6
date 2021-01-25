@@ -39,7 +39,7 @@
 // 9.箭头函数
 // 1)this是静态的，this始终指向函数声明时所在作用域下的this的值
 function getName() {
-  console.log(this.name);
+  console.log(this.name)
 }
 
 let getName2 = () => console.log(this.name)
@@ -62,7 +62,7 @@ let Person = (name, age) => {
 // let me = new Person('Wei', 37) //Uncaught TypeError: Person is not a constructor
 
 // 3)不能使用arguments变量
-let fn = () => console.log(arguments);
+let fn = () => console.log(arguments)
 //fn(1,2,3) //Uncaught ReferenceError: arguments is not defined
 
 // 4)arrow function的实践与应用场景
@@ -101,3 +101,17 @@ let ad = document.getElementById('ad')
 // }
 //date("Teresa", "Isabel", "Cynthia") //...args是一个数组
 
+const promise = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    let data = '数据库中的用户数据'
+    resolve(data)
+    let error = '数据读取失败'
+    reject(error)
+  }, 1000)
+})
+
+promise.then(function (data) {
+  console.log(data);
+}, function (error) {
+  console.error(error);
+})
