@@ -110,8 +110,32 @@ const promise = new Promise(function (resolve, reject) {
   }, 1000)
 })
 
-promise.then(function (data) {
+//调用then方法返回的结果是Promise对象，对象状态由回调函数的执行结果决定。
+//1.如果回调函数中返回的结果是非Promise类型的属性，状态为成功，返回值为对象的成功的值
+const result = promise.then(function (data) {
   console.log(data);
+  //1.非promise类型的属性
+  // return 'iloveyou'
+  //2.是promise类型
+  // return new Promise((resolve,reject) => {
+  //   reject('error')
+  //   //resolve('ok'))
+  // })
+  //3.抛出错误
+  throw new Error('出错了！')
 }, function (error) {
   console.error(error);
 })
+
+console.log(result);
+
+//Write the function isEmpty(obj) which returns true if the object has no properties, false otherwise.
+// function isEmpty(obj) {
+//   for (let key in obj) return "非空对象"
+//   return "空对象"
+// }
+
+// let schedule = {}
+// console.log(isEmpty(schedule))
+// schedule["7:30"] = "get up"
+// console.log(isEmpty(schedule))
