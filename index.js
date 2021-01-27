@@ -112,22 +112,22 @@ const promise = new Promise(function (resolve, reject) {
 
 //调用then方法返回的结果是Promise对象，对象状态由回调函数的执行结果决定。
 //1.如果回调函数中返回的结果是非Promise类型的属性，状态为成功，返回值为对象的成功的值
-const result = promise.then(function (data) {
-  console.log(data);
-  //1.非promise类型的属性
-  // return 'iloveyou'
-  //2.是promise类型
-  // return new Promise((resolve,reject) => {
-  //   reject('error')
-  //   //resolve('ok'))
-  // })
-  //3.抛出错误
-  throw new Error('出错了！')
-}, function (error) {
-  console.error(error);
-})
+// const result = promise.then(function (data) {
+//   console.log(data);
+//   //1.非promise类型的属性
+//   // return 'iloveyou'
+//   //2.是promise类型
+//   // return new Promise((resolve,reject) => {
+//   //   reject('error')
+//   //   //resolve('ok'))
+//   // })
+//   //3.抛出错误
+//   throw new Error('出错了！')
+// }, function (error) {
+//   console.error(error);
+// })
 
-console.log(result);
+//console.log(result);
 
 //Write the function isEmpty(obj) which returns true if the object has no properties, false otherwise.
 // function isEmpty(obj) {
@@ -139,3 +139,32 @@ console.log(result);
 // console.log(isEmpty(schedule))
 // schedule["7:30"] = "get up"
 // console.log(isEmpty(schedule))
+
+const btn = document.querySelector('#btn')
+
+btn.addEventListener('click', () => {
+  //创建Promise
+  const promise = new Promise((resolve, reject) => {
+    //1.创建对象
+    const xhr = new XMLHttpRequest()
+    //2.初始化
+    xhr.open('GET', 'https://api.apiopen.top/getJoke')
+    //3.发送
+    xhr.send()
+    //4.处理响应结果
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        //判断响应状态码2xx
+        if (xhr.status >= 200 && xhr.status < 300) {
+          //控制台输出响应体
+          resolve(xhr.response)
+        } else {
+          //控制台输出响应状态码
+          reject(xhr.status)
+        }
+      }
+    }
+  })
+
+  promise.then(data => console.log(data)), error => console.log(error)
+})

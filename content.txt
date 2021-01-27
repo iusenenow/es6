@@ -1,6 +1,0 @@
-1.Required knowledge  
-Things you should know before reading this blog post:
-
-JavaScript: You should have already written code in that language.
-Browser DOM (document object model): It helps if you are loosely familiar with how the DOM represents HTML and how it handles events.
-npm: It also helps if you have a basic understanding of the npm package manager for Node.js.
