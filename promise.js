@@ -40,15 +40,22 @@ function Promise(executor) {
   this.PromiseResult = null
   //保存实例对象的this的值
   const _this = this
+
   //resolve函数
+
   function resolve(data) {
+    //判断状态
+    if (_this.PromiseState !== 'pending') return
     //1.修改对象的状态(promiseState)
     _this.PromiseState = 'fulfilled'
     //2.设置对象的结果值(promiseReuslt)
     _this.PromiseResult = data
   }
+
   //reject函数
   function reject(data) {
+    //判断状态
+    if (_this.PromiseState !== 'pending') return
     //1.修改对象的状态(promiseState)
     _this.PromiseState = 'rejected'
     //2.设置对象的结果值(promiseReuslt)
@@ -70,9 +77,41 @@ Promise.prototype.then = function (onResolved, onRejected) {
 }
 
 const p = new Promise((resolve, reject) => {
-  //resolve('OK')
-  //reject('error')
-  throw "error"
+  reject('error')
+  resolve('OK')
+  //throw "error" //抛出异常
 })
 
 console.log(p);
+
+
+
+function* count() {
+  yield 1;
+  yield;
+  yield 2
+  yield 3
+}
+
+var generator = count()
+
+console.log(generator);
+
+console.log(generator.next())
+console.log(generator.next())
+console.log(generator.next())
+console.log(generator.next())
+console.log(generator.next())
+
+function* add() {
+  const num = yield
+  yield 2 + num
+  yield 4 + num
+}
+
+var generator2 = add()
+
+console.log(generator2.next());
+console.log(generator2.next(2));
+console.log(generator2.next());
+console.log(generator2.next());
