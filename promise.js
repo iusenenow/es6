@@ -83,35 +83,3 @@ const p = new Promise((resolve, reject) => {
 })
 
 console.log(p);
-
-
-
-function* count() {
-  yield 1;
-  yield;
-  yield 2
-  yield 3
-}
-
-var generator = count()
-
-console.log(generator);
-
-console.log(generator.next())
-console.log(generator.next())
-console.log(generator.next())
-console.log(generator.next())
-console.log(generator.next())
-
-function* add() {
-  const num = yield
-  yield 2 + num
-  yield 4 + num
-}
-
-var generator2 = add()
-
-console.log(generator2.next());
-console.log(generator2.next(2));
-console.log(generator2.next());
-console.log(generator2.next());
