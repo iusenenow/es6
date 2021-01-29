@@ -1,33 +1,3 @@
-// function* count() {
-//   yield 1;
-//   yield;
-//   yield 2
-//   yield 3
-// }
-
-// var generator = count()
-
-// console.log(generator);
-
-// console.log(generator.next())
-// console.log(generator.next())
-// console.log(generator.next())
-// console.log(generator.next())
-// console.log(generator.next())
-
-// function* add() {
-//   const num = yield
-//   yield 2 + num
-//   yield 4 + num
-// }
-
-// var generator2 = add()
-
-// console.log(generator2.next());
-// console.log(generator2.next(2));
-// console.log(generator2.next());
-// console.log(generator2.next());
-
 // let id = Symbol()
 
 // let id2 = Symbol('id2')
@@ -105,7 +75,7 @@
 // console.log(o instanceof Person);
 
 //isConcatSpreadable
-const arr = [1,2,3]
-const arr2 = [4,5,6]
-arr2[Symbol.isConcatSpreadable] = false
-console.log(arr.concat(arr2));
+// const arr = [1,2,3]
+// const arr2 = [4,5,6]
+// arr2[Symbol.isConcatSpreadable] = false
+// console.log(arr.concat(arr2));
