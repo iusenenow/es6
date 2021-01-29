@@ -54,10 +54,10 @@ const school = { name: 'ODPS' }
 //getName2.call(school) //Teresa
 
 // 2)不能作为构造函数构造实例化对象
-let Person = (name, age) => {
-  this.name = name
-  this.age = age
-}
+// let Person = (name, age) => {
+//   this.name = name
+//   this.age = age
+// }
 
 // let me = new Person('Wei', 37) //Uncaught TypeError: Person is not a constructor
 
