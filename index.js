@@ -168,3 +168,16 @@ btn.addEventListener('click', () => {
 
   promise.then(data => console.log(data)), error => console.log(error)
 })
+
+function doDelay(time) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const time = Date.now()
+      if(time % 2 === 0) resolve('数据成功' + time)
+      reject('失败数据' + time)
+    }, time)
+  })
+}
+
+const promiseDelay = doDelay(1000)
+promiseDelay.then(data => console.log(data), error => console.log(error))

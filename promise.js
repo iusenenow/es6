@@ -23,7 +23,7 @@
 
 //Promise的状态
 //[PromiseState]
-//Pending, resolved / fullfilled, rejected
+//Pending, fullfilled, rejected
 
 //Promise对象的值
 //[PromiseResult]保存对象[成功/失败的结果]

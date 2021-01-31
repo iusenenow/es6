@@ -115,81 +115,81 @@ console.log(generator.next())
 console.log(generator.next())
 
 //遍历
-for(let v of gen()) console.log(v);
+// for(let v of gen()) console.log(v);
 
-function* generateSequence(start, end) {
-  for (let i = start; i <= end; i++) yield i
-}
-
-for(let value of generateSequence(1, 5)) console.log(value);
-
-function* generatePasswordCodes() {
-  yield* generateSequence(48, 57)
-  yield* generateSequence(65, 90)
-  yield* generateSequence(97, 122)
-}
-
-let str = ''
-
-for(let code of generatePasswordCodes()) {
-  str += String.fromCharCode(code)
-}
-
-console.log(str);
-
-function* gen2() {
-  // Pass a question to the outer code and wait for an answer
-  let result = yield "2 + 2 = ?"; // (*)
-
-  console.log(result);
-}
-
-let generator2 = gen2()
-
-let question = generator2.next().value
-console.log(question);
-
-//generator2.next(4)
-// try {
-//   generator2.throw(new Error("The answer is not fould in the database."))
-// } catch (error) {
-//   console.error(error);
+// function* generateSequence(start, end) {
+//   for (let i = start; i <= end; i++) yield i
 // }
 
-//生成器函数实例
-//异步编程：文件操作、网络请求（ajax, request）数据库操作
+// for(let value of generateSequence(1, 5)) console.log(value);
 
-function getUsers(){
-  setTimeout(() => {
-    let data = '用户数据'
-    //调用next方法，并将数据传入
-    iterator3.next(data)
-  }, 1000);
-}
+// function* generatePasswordCodes() {
+//   yield* generateSequence(48, 57)
+//   yield* generateSequence(65, 90)
+//   yield* generateSequence(97, 122)
+// }
 
-function getOrders(){
-  setTimeout(() => {
-    let data = '订单数据'
-    iterator3.next(data)
-  }, 1000);
-}
+// let str = ''
 
-function getGoods(){
-  setTimeout(() => {
-    let data = '商品数据'
-    iterator3.next(data)
-  }, 1000);
-}
+// for(let code of generatePasswordCodes()) {
+//   str += String.fromCharCode(code)
+// }
 
-function* gen3(){
-  let users = yield getUsers()
-  console.log(users);
-  let orders = yield getOrders()
-  console.log(orders);
-  let goods = yield getGoods()
-  console.log(goods);
-}
+// console.log(str);
+
+// function* gen2() {
+//   // Pass a question to the outer code and wait for an answer
+//   let result = yield "2 + 2 = ?"; // (*)
+
+//   console.log(result);
+// }
+
+// let generator2 = gen2()
+
+// let question = generator2.next().value
+// console.log(question);
+
+// //generator2.next(4)
+// // try {
+// //   generator2.throw(new Error("The answer is not fould in the database."))
+// // } catch (error) {
+// //   console.error(error);
+// // }
+
+// //生成器函数实例
+// //异步编程：文件操作、网络请求（ajax, request）数据库操作
+
+// function getUsers(){
+//   setTimeout(() => {
+//     let data = '用户数据'
+//     //调用next方法，并将数据传入
+//     iterator3.next(data)
+//   }, 1000);
+// }
+
+// function getOrders(){
+//   setTimeout(() => {
+//     let data = '订单数据'
+//     iterator3.next(data)
+//   }, 1000);
+// }
+
+// function getGoods(){
+//   setTimeout(() => {
+//     let data = '商品数据'
+//     iterator3.next(data)
+//   }, 1000);
+// }
+
+// function* gen3(){
+//   let users = yield getUsers()
+//   console.log(users);
+//   let orders = yield getOrders()
+//   console.log(orders);
+//   let goods = yield getGoods()
+//   console.log(goods);
+// }
 
 //调用生成器函数
-let iterator3 = gen3()
-iterator3.next()
+// let iterator3 = gen3()
+// iterator3.next()
