@@ -33,6 +33,7 @@
 //如果传入的参数为非Promise类型的对象，则返回的结果为成功promise对象
 //如果入的参数为Promise类型的对象，则参数的结果决定了resolve的结果
 
+//Promise封装
 //声明构造函数
 function Promise(executor) {
   //添加属性
@@ -72,7 +73,7 @@ function Promise(executor) {
 }
 
 //添加then方法
-Promise.prototype.then = function (onResolved, onRejected) {
+Promise.prototype.then = function(onResolved, onRejected) {
 
 }
 
