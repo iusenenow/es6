@@ -13,49 +13,49 @@
 // console.log(iterator.next());
 
 //迭代器应用，自定义遍历数据
-const banji = {
-  name: '终极一班',
-  stus: [
-    'Teresa',
-    'Isabel',
-    'Cynthia',
-    'Jasmin'
-  ],
-  [Symbol.iterator]() {
-    //索引变量
-    let index = 0
-    let _this = this
-    return {
-      next() {
-        if (index < _this.stus.length) {
-          const result = { value: _this.stus[index], done: false }
-          //下标自增
-          index++
-          //返回结果
-          return result
-        }
-        return { value: undefined, done: true }
-      }
-    }
-  }
-}
+// const banji = {
+//   name: '终极一班',
+//   stus: [
+//     'Teresa',
+//     'Isabel',
+//     'Cynthia',
+//     'Jasmin'
+//   ],
+//   [Symbol.iterator]() {
+//     //索引变量
+//     let index = 0
+//     let _this = this
+//     return {
+//       next() {
+//         if (index < _this.stus.length) {
+//           const result = { value: _this.stus[index], done: false }
+//           //下标自增
+//           index++
+//           //返回结果
+//           return result
+//         }
+//         return { value: undefined, done: true }
+//       }
+//     }
+//   }
+// }
 
 //for (let i of banji) console.log(i);
 
-const range = { from: 1, to: 5 }
+// const range = { from: 1, to: 5 }
 
-range[Symbol.iterator] = function () {
-  return {
-    current: this.from,
-    last: this.to,
-    next() {
-      if (this.current <= this.last) {
-        return { value: this.current++, done: false }
-      }
-      return { done: true }
-    }
-  }
-}
+// range[Symbol.iterator] = function () {
+//   return {
+//     current: this.from,
+//     last: this.to,
+//     next() {
+//       if (this.current <= this.last) {
+//         return { value: this.current++, done: false }
+//       }
+//       return { done: true }
+//     }
+//   }
+// }
 
 //for (let num of range) console.log(num);
 
@@ -93,26 +93,26 @@ range[Symbol.iterator] = function () {
 //生成器其实就是一个特殊的函数
 //异步编程
 //yield相当于函数代码的分隔符
-function * gen(){
-  console.log(111);
-  yield 'Teresa'
-  console.log(222);
-  yield 'Isabel'
-  console.log(333);
-  yield 'Cynthia'
-  console.log(444);
-  yield
-  return 1
-}
+// function * gen(){
+//   console.log(111);
+//   yield 'Teresa'
+//   console.log(222);
+//   yield 'Isabel'
+//   console.log(333);
+//   yield 'Cynthia'
+//   console.log(444);
+//   yield
+//   return 1
+// }
 
-let generator = gen()
-//console.log(generator);
-console.log(JSON.stringify(generator.next()))
-console.log(generator.next())
-console.log(generator.next())
-console.log(generator.next())
-console.log(generator.next())
-console.log(generator.next())
+// let generator = gen()
+// //console.log(generator);
+// console.log(JSON.stringify(generator.next()))
+// console.log(generator.next())
+// console.log(generator.next())
+// console.log(generator.next())
+// console.log(generator.next())
+// console.log(generator.next())
 
 //遍历
 // for(let v of gen()) console.log(v);
